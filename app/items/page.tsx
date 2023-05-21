@@ -40,7 +40,7 @@ export default function Items() {
       <h1 className='text-4xl text-center mb-10 tracking-[1.25rem] font-extralight'>
         ITEMS
       </h1>
-      <div className='w-screen flex justify-center flex-wrap'>
+      <div className='mx-auto w-[80%] flex justify-start flex-wrap'>
         {items.map((item) => {
           return <Item key={item._id} item={item} />;
         })}
