@@ -52,7 +52,7 @@ export default function Detail(props: DefaultProps) {
       }
     };
     fetchItem();
-  }, []);
+  }, [id]);
 
   if (!loading) return <Loading />;
 

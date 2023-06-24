@@ -39,16 +39,6 @@ const WriteReview: React.FC<DefaultProps> = (props: DefaultProps) => {
   const [options, setOptions] = useState<JSX.Element[]>([]);
   const router = useRouter();
 
-  const addOptions = () => {
-    let options = [];
-    options.push(<option key='0'>구매 사이즈 선택</option>);
-    if (item?.maxSize) {
-      for (let k = 1; k <= item.maxSize; k++)
-        options.push(<option key={k}>{k}</option>);
-      setOptions(options);
-    }
-  };
-
   const writeReviewHandler = async () => {
     try {
       const res = await fetch(`/api/items/${id}/review`, {
@@ -77,9 +67,19 @@ const WriteReview: React.FC<DefaultProps> = (props: DefaultProps) => {
       }
     };
     fetchItems();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
+    const addOptions = () => {
+      let options = [];
+      options.push(<option key='0'>구매 사이즈 선택</option>);
+      if (item?.maxSize) {
+        for (let k = 1; k <= item.maxSize; k++)
+          options.push(<option key={k}>{k}</option>);
+        setOptions(options);
+      }
+    };
+
     addOptions();
   }, [item]);
 

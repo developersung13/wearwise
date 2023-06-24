@@ -44,7 +44,7 @@ export default function Review(props: DefaultProps) {
       }
     };
     fetchItem();
-  }, []);
+  }, [id]);
 
   if (!loading) return <Loading />;
 
