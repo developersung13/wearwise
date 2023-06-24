@@ -50,7 +50,7 @@ export default function Item({ review }: Props) {
       }
     };
     fetchItem();
-  }, []);
+  }, [review.productNo]);
 
   if (!loading) return <Loading />;
 
